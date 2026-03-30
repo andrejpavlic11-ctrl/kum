@@ -3,8 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="Advokatska kancelarija Dalibor Mrša"/>
+    <meta property="og:description" content="Advokat i Branilac u Banja Luci"/>
+    <meta property="og:image" content="https://andrejpavlic11-ctrl.github.io/kum/logo.jpg" />
+    <meta property="og:url" content="https://dalibormrsa.com"/>
+    <meta property="og:type" content="advocate"/>
   <title data-en="Law Office Dalibor Mrša" data-bs="Advokatska Kancelarija Dalibor Mrša">Advokatska Kancelarija Dalibor Mrša</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="icon" type="image/x-icon" href="./faviconn.ico">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -227,10 +233,6 @@
     /* ── ANIMATIONS ── */
     .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.7s ease, transform 0.7s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
-    /* Fallback: ensure reveals are visible if JS fails */
-    @media (prefers-reduced-motion: reduce) {
-      .reveal { opacity: 1; transform: none; }
-    }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 1100px) {
@@ -252,30 +254,9 @@
       .map-pin { left: 20px; }
     }
     @media (max-width: 720px) {
-      nav {
-        padding: 14px 20px;
-        background: rgba(14,13,11,0.97) !important;
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        -webkit-transform: translateZ(0);
-        transform: translateZ(0);
-      }
-      nav.scrolled { padding: 10px 20px; background: rgba(255,255,255,0.99) !important; }
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        position: fixed;
-        top: 52px;
-        left: 0; right: 0;
-        background: var(--white);
-        padding: 14px 22px 22px;
-        box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-        gap: 14px;
-        margin-left: 0;
-        z-index: 199;
-      }
-      nav.scrolled ~ * .nav-links,
-      .nav-links { top: 52px; }
+      nav { padding: 14px 20px; background: rgba(14,13,11,0.95) !important; backdrop-filter: blur(10px); }
+      nav.scrolled { padding: 10px 20px; background: rgba(255,255,255,0.98) !important; }
+      .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--white); padding: 14px 22px 22px; box-shadow: 0 8px 24px rgba(0,0,0,0.1); gap: 14px; margin-left: 0; }
       .nav-links.open { display: flex; }
       .nav-links a, nav.scrolled .nav-links a { color: var(--dark); }
       .nav-links a:hover { color: var(--orange); }
@@ -340,8 +321,8 @@
 <!-- ══ STATS ══ -->
 <div class="stats-bar">
   <div class="stat-item reveal"><div class="stat-num">14+</div><div class="stat-lbl" data-en="Years of experience" data-bs="Godina iskustva">Godina iskustva</div></div>
-  <div class="stat-item reveal" style="transition-delay:.08s"><div class="stat-num">500+</div><div class="stat-lbl" data-en="Pleased clients" data-bs="Zastupanih predmeta">Zadovoljnih klijenata</div></div>
-  <div class="stat-item reveal" style="transition-delay:.16s"><div class="stat-num">5+</div><div class="stat-lbl" data-en="International partnerships" data-bs="Međunarodna partnerstva">Međunarodna partnerstva</div></div>
+  <div class="stat-item reveal" style="transition-delay:.08s"><div class="stat-num">500+</div><div class="stat-lbl" data-en="Represented cases" data-bs="Zastupanih predmeta">Zastupanih predmeta</div></div>
+  <div class="stat-item reveal" style="transition-delay:.16s"><div class="stat-num">3</div><div class="stat-lbl" data-en="International partnerships" data-bs="Međunarodna partnerstva">Međunarodna partnerstva</div></div>
   <div class="stat-item reveal" style="transition-delay:.24s"><div class="stat-num">BiH</div><div class="stat-lbl" data-en="Jurisdiction" data-bs="Nadležnost">Nadležnost</div></div>
 </div>
 
@@ -394,28 +375,28 @@
     <div class="vcard reveal">
       <div class="vcard-stripe"></div>
       <div class="vcard-top">
-        <div class="vcard-logo">SCHNEIDER &amp; SCHNEIDER</div>
-        <div class="vcard-tagline" data-en="Attorneys at Law" data-bs="Advokatska Kancelarija">Advokatska Kancelarija</div>
+        <div class="vcard-logo">LAW24.PL</div>
+        <div class="vcard-tagline" data-en="Poznań Office" data-bs="Kancelaria Prawna">Kancelaria Prawna</div>
       </div>
       <div class="vcard-photo-wrap">
-        <img src="./kum10.jpg" class="vcard-photo-rect" alt="Vienna Office">
+        <img src="./kum10.jpg" class="vcard-photo-rect" alt="Poznań Office">
       </div>
       <div class="vcard-body">
         <div class="vcard-person-info">
-          <div class="vcard-name">Dr. Hans Schneider</div>
-          <div class="vcard-title" data-en="Partner — Vienna, Austria" data-bs="Partner — Beč, Austrija">Partner — Beč, Austrija</div>
+          <div class="vcard-name">Mariusz Korpalski</div>
+          <div class="vcard-title" data-en="Solicitor — Poznań, Poland" data-bs="Radca Prawny — Poznań, Poljska">Radca Prawny — Poznań, Poljska</div>
         </div>
         <div class="vcard-row">
           <div class="vcard-icon">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
           </div>
-          <div class="vcard-info">Stephansplatz 4, 1010 Wien</div>
+          <div class="vcard-info">ul. Śląska 20, 60-614 Poznań</div>
         </div>
         <div class="vcard-row">
           <div class="vcard-icon">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           </div>
-          <div class="vcard-info">+43 1 533 44 55</div>
+          <div class="vcard-info">+48 61 8434030</div>
         </div>
         <div class="vcard-accent"></div>
       </div>
@@ -425,28 +406,28 @@
     <div class="vcard reveal" style="transition-delay:.1s">
       <div class="vcard-stripe"></div>
       <div class="vcard-top">
-        <div class="vcard-logo">ROSSI &amp; ASSOCIATI</div>
-        <div class="vcard-tagline" data-en="Legal & Consulting" data-bs="Pravno Savjetovanje">Pravno Savjetovanje</div>
+        <div class="vcard-logo">Highgate Hill Solicitors</div>
+        <div class="vcard-tagline" data-en="London Office" data-bs="London Office">London Office</div>
       </div>
       <div class="vcard-photo-wrap">
-        <img src="./kum6.jpg&q=80&fit=crop" class="vcard-photo-rect" alt="Milan Office">
+        <img src="./kum6.jpg" class="vcard-photo-rect" alt="London Office">
       </div>
       <div class="vcard-body">
         <div class="vcard-person-info">
-          <div class="vcard-name">Avv. Marco Rossi</div>
-          <div class="vcard-title" data-en="Partner — Milan, Italy" data-bs="Partner — Milano, Italija">Partner — Milano, Italija</div>
+          <div class="vcard-name">Dr. Katherine Alexander-Theodotou</div>
+          <div class="vcard-title" data-en="Solicitor & Advocate — London, UK" data-bs="Solicitor & Advocate — London, UK">Solicitor & Advocate — London, UK</div>
         </div>
         <div class="vcard-row">
           <div class="vcard-icon">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
           </div>
-          <div class="vcard-info">Via Montenapoleone 8, 20121 Milano</div>
+          <div class="vcard-info">98 Dresden Road, N19 3BQ London</div>
         </div>
         <div class="vcard-row">
           <div class="vcard-icon">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           </div>
-          <div class="vcard-info">+39 02 7600 1122</div>
+          <div class="vcard-info">+44 20 7263 6445</div>
         </div>
         <div class="vcard-accent"></div>
       </div>
@@ -456,28 +437,28 @@
     <div class="vcard reveal" style="transition-delay:.2s">
       <div class="vcard-stripe"></div>
       <div class="vcard-top">
-        <div class="vcard-logo">ADRIATIC LEGAL</div>
-        <div class="vcard-tagline" data-en="Regional Network" data-bs="Regionalna Mreža">Regionalna Mreža</div>
+        <div class="vcard-logo">LECOQ-VALLON & FERON-POLONI</div>
+        <div class="vcard-tagline" data-en="Paris Office" data-bs="Société d’Avocats">Société d’Avocats</div>
       </div>
       <div class="vcard-photo-wrap">
-        <img src="./kum9.jpg&q=80&fit=crop" class="vcard-photo-rect" alt="Belgrade Office">
+        <img src="./kum9.jpg" class="vcard-photo-rect" alt="Paris Office">
       </div>
       <div class="vcard-body">
         <div class="vcard-person-info">
-          <div class="vcard-name">Adv. Milica Perić</div>
-          <div class="vcard-title" data-en="Partner — Belgrade, Serbia" data-bs="Partner — Beograd, Srbija">Partner — Beograd, Srbija</div>
+          <div class="vcard-name">Hélène Feron-Poloni</div>
+          <div class="vcard-title" data-en="Avocat — Paris, France" data-bs="Avocat — Pariz, Francuska">Avocat — Pariz, Francuska</div>
         </div>
         <div class="vcard-row">
           <div class="vcard-icon">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
           </div>
-          <div class="vcard-info">Knez Mihailova 30, 11000 Beograd</div>
+          <div class="vcard-info">14, rue Jacques Bingen, 75017 Paris</div>
         </div>
         <div class="vcard-row">
           <div class="vcard-icon">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           </div>
-          <div class="vcard-info">+381 11 322 4455</div>
+          <div class="vcard-info">+33 1 53 04 97 77</div>
         </div>
         <div class="vcard-accent"></div>
       </div>
@@ -510,7 +491,7 @@
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
       </div>
       <div class="contact-block-lbl" data-en="Email" data-bs="E-mail">E-mail</div>
-      <div class="contact-block-val"><a href="mailto:dalibor.mrsa@gmail.com"><span class="__cf_email__" data-cfemail="7317121f1a111c015d1e01001233141e121a1f5d101c1e">dalibor.mrsa@gmail.com</span></a></div>
+      <div class="contact-block-val"><a href="mailto:dalibor.mrsa@gmail.com">dalibor.mrsa@gmail.com</a></div>
     </div>
   </div>
 
@@ -524,7 +505,7 @@
 
 <!-- ══ MAP ══ -->
 <div class="map-wrap">
-  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2832.326068796499!2d17.198092199999998!3d44.7741574!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475e0310175a908d%3A0xdc1a402cf83df5b3!2sAdvokatska%20kancelarija%20Dalibor%20Mr%C5%A1a!5e0!3m2!1sen!2sba!4v1774883208777!5m2!1sen!2sba" allowfullscreen="" loading="lazy"></iframe>
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2830.144747656242!2d17.19248467664848!3d44.77785597107153!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475e030f06677777%3A0x7777777777777777!2sNikole%20Pa%C5%A1i%C4%87a%2050%2C%20Banja%20Luka%2078000!5e0!3m2!1sbs!2sba!4v1700000000000!5m2!1sbs!2sba" allowfullscreen="" loading="lazy"></iframe>
   <div class="map-pin">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
     <div>
@@ -558,12 +539,13 @@
         <li>Nikole Pašića 50</li>
         <li>78000 Banja Luka, BiH</li>
         <li><a href="tel:051921358">051 / 921-358</a></li>
-        <li><a href="mailto:dalibor.mrsa@gmail.com"><span class="__cf_email__" data-cfemail="ee8a8f82878c819cc0839c9d8fae89838f8782c08d8183">dalibor.mrsa@gmail.com</span></a></li>
+        <li><a href="mailto:dalibor.mrsa@gmail.com">dalibor.mrsa@gmail.com</a></li>
         <li style="margin-top:10px">
           <a href="https://www.facebook.com/advokatmrsa/about?locale=hr_HR" target="_blank" rel="noopener" data-en="Facebook page" data-bs="Facebook stranica">
             Facebook stranica
           </a>
         </li>
+        <li><a href="http://www.advokatmrsa.com" target="_blank" rel="noopener">advokatmrsa.com</a></li>
       </ul>
     </div>
   </div>
@@ -584,71 +566,38 @@
 </footer>
 
 <script>
-  // ── NAVBAR ──
   const nav = document.getElementById('navbar');
-  const links = document.getElementById('navLinks');
-
-  function updateDropdownTop() {
-    if (window.innerWidth <= 720) {
-      links.style.top = nav.offsetHeight + 'px';
-    } else {
-      links.style.top = '';
-    }
-  }
-
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 50);
-    updateDropdownTop();
-  }, { passive: true });
-
-  window.addEventListener('resize', updateDropdownTop, { passive: true });
-  updateDropdownTop();
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 50), { passive: true });
 
   const toggle = document.getElementById('navToggle');
-  toggle.addEventListener('click', () => { updateDropdownTop(); links.classList.toggle('open'); });
+  const links  = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => links.classList.toggle('open'));
   links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
 
-  // ── REVEAL ANIMATIONS ──
-  // Make all reveals visible immediately if already in viewport on load
-  function revealInViewport() {
-    document.querySelectorAll('.reveal:not(.visible)').forEach(el => {
-      const rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight && rect.bottom > 0) {
-        el.classList.add('visible');
-      }
-    });
-  }
-
-  try {
-    const obs = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-    }, { threshold: 0.05 });
-    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-  } catch(e) {
-    // Fallback: just make everything visible
-    document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
-  }
-
-  // Run on load and scroll to catch any missed elements
-  window.addEventListener('load', revealInViewport);
-  window.addEventListener('scroll', revealInViewport, { passive: true });
-  revealInViewport();
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
   // ── LANGUAGE SWITCH LOGIC ──
   const langBtn = document.getElementById('langBtn');
   let currentLang = 'bs';
 
-  function applyLanguage(lang) {
-    document.documentElement.lang = lang;
-    document.querySelectorAll('[data-en][data-bs]').forEach(el => {
-      const text = el.getAttribute('data-' + lang);
-      if (text) el.innerHTML = text;
-    });
-    langBtn.textContent = lang === 'bs' ? 'EN' : 'BS';
-  }
-
   langBtn.addEventListener('click', () => {
     currentLang = currentLang === 'bs' ? 'en' : 'bs';
-    applyLanguage(currentLang);
+    langBtn.textContent = currentLang === 'bs' ? 'EN' : 'BS';
+    document.documentElement.lang = currentLang;
+    
+    document.querySelectorAll('[data-en]').forEach(el => {
+      el.innerHTML = el.getAttribute(`data-${currentLang}`);
+    });
+
+    // Update page title
+    const titleEl = document.querySelector('title');
+    if (titleEl && titleEl.getAttribute(`data-${currentLang}`)) {
+      document.title = titleEl.getAttribute(`data-${currentLang}`);
+    }
   });
 </script>
+</body>
+</html>
