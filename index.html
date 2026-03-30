@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-en="Law Office Dalibor Mrša" data-bs="Advokatska Kancelarija Dalibor Mrša">Advokatska Kancelarija Dalibor Mrša</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --white:   #ffffff;
+      --off:     #f7f5f0;
+      --light:   #ece9e2;
+      --mid:     #9a9490;
+      --dark:    #1c1a18;
+      --black:   #0e0d0b;
+      --orange:  #e06820;
+      --orange2: #f07d38;
+      --orange3: #c85510;
+      --purple:  #4a2d6b;
+      --purple2: #6b3f96;
+      --shadow:  0 8px 40px rgba(14,13,11,0.13);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--off); color: var(--dark); font-family: 'Outfit', sans-serif; font-weight: 300; overflow-x: hidden; }
+    ::-webkit-scrollbar { width: 3px; }
+    ::-webkit-scrollbar-track { background: var(--off); }
+    ::-webkit-scrollbar-thumb { background: var(--orange); }
+    img { display: block; max-width: 100%; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 22px 64px;
+      transition: background 0.4s, padding 0.4s, box-shadow 0.4s;
+      background: rgba(14,13,11,0.85);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+      will-change: transform;
+    }
+    nav.scrolled {
+      background: rgba(255,255,255,0.97);
+      padding: 14px 64px;
+      box-shadow: 0 1px 0 rgba(224,104,32,0.15), 0 4px 24px rgba(0,0,0,0.07);
+      backdrop-filter: blur(10px);
+    }
+    .nav-logo { display: flex; flex-direction: column; gap: 1px; text-decoration: none; }
+    .nav-logo-top { font-size: 0.56rem; font-weight: 500; letter-spacing: 0.32em; text-transform: uppercase; color: rgba(255,255,255,0.6); transition: color 0.4s; }
+    .nav-logo-bottom { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--white); transition: color 0.4s; }
+    nav.scrolled .nav-logo-top { color: var(--orange); }
+    nav.scrolled .nav-logo-bottom { color: var(--dark); }
+    .nav-links { display: flex; gap: 40px; list-style: none; align-items: center; margin-left: auto; }
+    .nav-links a { font-size: 0.68rem; font-weight: 400; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.65); text-decoration: none; transition: color 0.25s; }
+    nav.scrolled .nav-links a { color: var(--mid); }
+    .nav-links a:hover, nav.scrolled .nav-links a:hover { color: var(--orange); }
+    .nav-cta { background: var(--orange) !important; color: var(--white) !important; padding: 9px 22px; transition: background 0.25s !important; }
+    .nav-cta:hover { background: var(--orange2) !important; color: var(--white) !important; }
+    .nav-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+    .nav-toggle span { display: block; width: 22px; height: 1.5px; background: var(--white); transition: 0.3s; }
+    nav.scrolled .nav-toggle span { background: var(--dark); }
+
+    /* ── LANGUAGE TOGGLE ── */
+    .lang-switch {
+      margin-left: 30px;
+      display: flex;
+      align-items: center;
+    }
+    .lang-btn {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.3);
+      color: var(--white);
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      padding: 6px 12px;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-transform: uppercase;
+    }
+    nav.scrolled .lang-btn {
+      border-color: var(--orange);
+      color: var(--dark);
+    }
+    .lang-btn:hover {
+      background: var(--orange);
+      border-color: var(--orange);
+      color: var(--white) !important;
+    }
+
+    /* ── HERO ── */
+    #hero { position: relative; height: 100vh; min-height: 640px; display: flex; align-items: center; overflow: hidden; }
+    .hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; z-index: 0; }
+    .hero-overlay { position: absolute; inset: 0; z-index: 1; background: linear-gradient(110deg, rgba(14,13,11,0.88) 38%, rgba(224,104,32,0.22) 100%); }
+    .hero-content { position: relative; z-index: 2; padding: 0 64px; max-width: 760px; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 10px; background: rgba(224,104,32,0.18); border: 1px solid rgba(224,104,32,0.5); padding: 7px 16px; margin-bottom: 28px; }
+    .hero-badge::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--orange); flex-shrink: 0; }
+    .hero-badge span { font-size: 0.6rem; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: var(--orange2); }
+    .hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(3.6rem, 6.5vw, 6.4rem); font-weight: 300; line-height: 1.0; color: var(--white); margin-bottom: 10px; }
+    .hero-title em { font-style: italic; color: var(--orange2); }
+    .hero-sub { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.4rem, 2.4vw, 2.1rem); font-weight: 300; color: rgba(255,255,255,0.45); letter-spacing: 0.06em; margin-bottom: 28px; }
+    .hero-line { width: 56px; height: 2px; background: var(--orange); margin-bottom: 26px; }
+    .hero-desc { font-size: 0.86rem; line-height: 1.95; color: rgba(255,255,255,0.52); max-width: 460px; margin-bottom: 42px; }
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-orange { background: var(--orange); color: var(--white); font-size: 0.65rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; text-decoration: none; padding: 14px 36px; transition: background 0.25s, transform 0.2s; border: none; cursor: pointer; }
+    .btn-orange:hover { background: var(--orange2); transform: translateY(-1px); }
+    .btn-ghost { background: transparent; color: rgba(255,255,255,0.7); font-size: 0.65rem; font-weight: 400; letter-spacing: 0.22em; text-transform: uppercase; text-decoration: none; padding: 13px 36px; border: 1px solid rgba(255,255,255,0.28); transition: border-color 0.25s, color 0.25s; }
+    .btn-ghost:hover { border-color: var(--orange2); color: var(--orange2); }
+
+    /* ── STATS ── */
+    .stats-bar { background: var(--dark); display: grid; grid-template-columns: repeat(4,1fr); }
+    .stat-item { padding: 34px 20px; text-align: center; border-right: 1px solid rgba(255,255,255,0.06); }
+    .stat-item:last-child { border-right: none; }
+    .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 2.6rem; font-weight: 300; color: var(--orange); line-height: 1; margin-bottom: 6px; }
+    .stat-lbl { font-size: 0.58rem; font-weight: 400; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.3); }
+
+    /* ── SECTION BASE ── */
+    section { padding: 96px 64px; }
+    .section-tag { font-size: 0.6rem; font-weight: 500; letter-spacing: 0.35em; text-transform: uppercase; color: var(--orange); margin-bottom: 14px; display: flex; align-items: center; gap: 12px; }
+    .section-tag::before { content: ''; display: block; width: 26px; height: 1.5px; background: var(--orange); flex-shrink: 0; }
+    .section-h { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3.2vw, 2.8rem); font-weight: 300; color: var(--dark); line-height: 1.12; margin-bottom: 16px; }
+    .section-h em { font-style: italic; color: var(--orange); }
+
+    /* ── ABOUT ── */
+    #about { background: var(--white); }
+    .about-grid { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .about-img-wrap { position: relative; }
+    .about-img-wrap::after { content: ''; position: absolute; top: 18px; left: 18px; right: -18px; bottom: -18px; background: var(--orange); z-index: 0; opacity: 0.9; }
+    .about-img-wrap img { position: relative; z-index: 1; width: 100%; aspect-ratio: 4/5; object-fit: cover; object-position: center top; }
+    .about-yr-badge { position: absolute; bottom: -1px; right: -19px; z-index: 2; background: var(--purple); color: var(--white); padding: 18px 20px; text-align: center; }
+    .about-yr-num { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 300; line-height: 1; display: block; }
+    .about-yr-lbl { font-size: 0.52rem; letter-spacing: 0.18em; text-transform: uppercase; opacity: 0.85; }
+    .about-text p { font-size: 0.84rem; line-height: 2; color: #5a5550; margin-bottom: 16px; }
+    .about-text p strong { color: var(--dark); font-weight: 500; }
+    .about-sig { font-family: 'Cormorant Garamond', serif; font-size: 1.9rem; font-style: italic; color: var(--orange3); margin-top: 28px; margin-bottom: 2px; }
+    .about-sig-title { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mid); }
+
+    /* ── SERVICES ── */
+    #services { background: var(--off); }
+    .services-head { max-width: 1180px; margin: 0 auto 52px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; align-items: end; }
+    .services-head-note { font-size: 0.8rem; line-height: 1.9; color: #7a7570; }
+    .svc-grid { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; background: var(--light); }
+    .svc-card { background: var(--white); padding: 42px 34px; position: relative; overflow: hidden; transition: background 0.3s; }
+    .svc-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--orange); transform: scaleY(0); transform-origin: bottom; transition: transform 0.35s; }
+    .svc-card:hover { background: #fff9f5; }
+    .svc-card:hover::before { transform: scaleY(1); }
+    .svc-n { font-family: 'Cormorant Garamond', serif; font-size: 3.8rem; font-weight: 300; color: rgba(224,104,32,0.09); line-height: 1; margin-bottom: 18px; transition: color 0.3s; }
+    .svc-card:hover .svc-n { color: rgba(224,104,32,0.2); }
+    .svc-name { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 400; color: var(--dark); margin-bottom: 12px; }
+    .svc-desc { font-size: 0.77rem; line-height: 1.85; color: #7a7570; }
+
+    /* ── PARTNERS ── */
+    #partners { background: var(--white); }
+    .partners-head { max-width: 1180px; margin: 0 auto 48px; }
+    .partners-grid { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; }
+
+    .vcard { background: var(--white); border: 1px solid var(--light); box-shadow: var(--shadow); position: relative; overflow: hidden; transition: box-shadow 0.3s, transform 0.3s; }
+    .vcard:hover { box-shadow: 0 16px 56px rgba(224,104,32,0.16); transform: translateY(-3px); }
+    .vcard-stripe { height: 4px; background: linear-gradient(to right, var(--orange), var(--orange2)); }
+    .vcard-top { background: linear-gradient(135deg, var(--dark) 0%, #2d2a26 100%); padding: 22px 24px 18px; position: relative; overflow: hidden; }
+    .vcard-top::before { content: ''; position: absolute; top: -30px; right: -20px; width: 90px; height: 90px; background: rgba(224,104,32,0.1); border-radius: 50%; }
+    .vcard-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 600; letter-spacing: 0.04em; color: var(--white); line-height: 1.25; margin-bottom: 4px; }
+    .vcard-tagline { font-size: 0.56rem; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.38); }
+    .vcard-photo-wrap { width: 100%; height: 180px; overflow: hidden; background: var(--white); display: flex; align-items: center; justify-content: center; padding: 10px; }
+    .vcard-photo-rect { max-width: 100%; max-height: 100%; object-fit: contain; display: block; transition: transform 0.4s; }
+    .vcard:hover .vcard-photo-rect { transform: scale(1.05); }
+    .vcard-body { padding: 20px 24px 24px; }
+    .vcard-person-info { margin-bottom: 16px; padding-bottom: 14px; border-bottom: 1px solid var(--light); }
+    .vcard-name { font-family: 'Cormorant Garamond', serif; font-size: 1.08rem; font-weight: 600; color: var(--dark); line-height: 1.2; margin-bottom: 3px; }
+    .vcard-title { font-size: 0.62rem; color: var(--orange); letter-spacing: 0.1em; font-weight: 500; }
+    .vcard-row { display: flex; align-items: flex-start; gap: 9px; margin-bottom: 8px; }
+    .vcard-row:last-child { margin-bottom: 0; }
+    .vcard-icon { color: var(--orange); flex-shrink: 0; margin-top: 1px; }
+    .vcard-info { font-size: 0.7rem; color: #6a6560; line-height: 1.5; }
+    .vcard-info strong { color: var(--dark); font-weight: 500; }
+    .vcard-accent { position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(to right, var(--orange), var(--purple)); }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--dark); }
+    #contact .section-tag { color: var(--orange2); }
+    #contact .section-tag::before { background: var(--orange2); }
+    #contact .section-h { color: var(--white); }
+    #contact .section-h em { color: var(--orange2); }
+    .contact-layout { max-width: 1060px; margin: 52px auto 0; display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; background: rgba(255,255,255,0.04); }
+    .contact-block { background: rgba(255,255,255,0.03); padding: 44px 32px; text-align: center; transition: background 0.3s; }
+    .contact-block:hover { background: rgba(224,104,32,0.07); }
+    .contact-block-icon { width: 50px; height: 50px; background: var(--orange); display: flex; align-items: center; justify-content: center; margin: 0 auto 18px; }
+    .contact-block-lbl { font-size: 0.56rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--orange2); margin-bottom: 10px; }
+    .contact-block-val { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; color: var(--white); line-height: 1.5; }
+    .contact-block-val a { color: var(--white); text-decoration: none; transition: color 0.25s; }
+    .contact-block-val a:hover { color: var(--orange2); }
+    .hours-grid { max-width: 460px; margin: 52px auto 0; }
+    .hours-title { font-size: 0.58rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--orange2); text-align: center; margin-bottom: 22px; }
+    .hours-row { display: flex; justify-content: space-between; font-size: 0.79rem; color: rgba(255,255,255,0.42); padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .hours-row:last-child { border-bottom: none; }
+    .hours-row span:last-child { color: var(--orange2); }
+
+    /* ── MAP ── */
+    .map-wrap { height: 380px; position: relative; overflow: hidden; }
+    .map-wrap iframe { width: 100%; height: 100%; border: none; filter: grayscale(50%) contrast(1.05); }
+    .map-pin { position: absolute; bottom: 26px; left: 60px; background: var(--white); border-left: 3px solid var(--orange); padding: 16px 22px; box-shadow: 0 4px 28px rgba(0,0,0,0.18); display: flex; align-items: center; gap: 12px; }
+    .map-pin svg { color: var(--orange); flex-shrink: 0; }
+    .map-pin-name { font-family: 'Cormorant Garamond', serif; font-size: 0.92rem; font-weight: 600; color: var(--dark); margin-bottom: 2px; }
+    .map-pin-addr { font-size: 0.67rem; color: var(--mid); }
+
+    /* ── FOOTER ── */
+    footer { background: var(--black); border-top: 3px solid var(--orange); }
+    .footer-main { max-width: 1180px; margin: 0 auto; padding: 60px 64px 44px; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 56px; }
+    .f-brand-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); margin-bottom: 12px; }
+    .f-brand-logo span { color: var(--orange2); }
+    .f-tagline { font-size: 0.76rem; line-height: 1.85; color: rgba(255,255,255,0.28); max-width: 250px; }
+    .f-col-title { font-size: 0.56rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--orange); margin-bottom: 18px; }
+    .f-col ul { list-style: none; }
+    .f-col li { margin-bottom: 9px; font-size: 0.76rem; color: rgba(255,255,255,0.32); }
+    .f-col a { color: rgba(255,255,255,0.32); text-decoration: none; transition: color 0.25s; }
+    .f-col a:hover { color: var(--orange2); }
+    .footer-bottom { max-width: 1180px; margin: 0 auto; padding: 18px 64px; border-top: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+    .f-copy { font-size: 0.63rem; color: rgba(255,255,255,0.18); }
+    .f-napa { font-size: 0.62rem; color: rgba(255,255,255,0.22); display: flex; align-items: center; gap: 6px; }
+    .f-napa a { color: rgba(255,255,255,0.38); text-decoration: none; display: flex; align-items: center; gap: 5px; transition: color 0.25s; }
+    .f-napa a:hover { color: var(--orange2); }
+    .f-napa svg { flex-shrink: 0; }
+
+    /* ── ANIMATIONS ── */
+    .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    /* Fallback: ensure reveals are visible if JS fails */
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1100px) {
+      nav { padding: 18px 32px; }
+      nav.scrolled { padding: 12px 32px; }
+      section { padding: 76px 32px; }
+      .hero-content { padding: 0 32px; }
+      .stats-bar { grid-template-columns: repeat(2,1fr); }
+      .stat-item:nth-child(2) { border-right: none; }
+      .about-grid { grid-template-columns: 1fr; gap: 56px; }
+      .about-img-wrap { max-width: 360px; }
+      .about-yr-badge { right: -10px; }
+      .services-head { grid-template-columns: 1fr; gap: 18px; }
+      .svc-grid { grid-template-columns: repeat(2,1fr); }
+      .partners-grid { grid-template-columns: repeat(2,1fr); }
+      .contact-layout { grid-template-columns: 1fr; background: transparent; gap: 1px; }
+      .footer-main { grid-template-columns: 1fr; gap: 32px; padding: 44px 32px 36px; }
+      .footer-bottom { padding: 16px 32px; }
+      .map-pin { left: 20px; }
+    }
+    @media (max-width: 720px) {
+      nav {
+        padding: 14px 20px;
+        background: rgba(14,13,11,0.97) !important;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+      }
+      nav.scrolled { padding: 10px 20px; background: rgba(255,255,255,0.99) !important; }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 52px;
+        left: 0; right: 0;
+        background: var(--white);
+        padding: 14px 22px 22px;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+        gap: 14px;
+        margin-left: 0;
+        z-index: 199;
+      }
+      nav.scrolled ~ * .nav-links,
+      .nav-links { top: 52px; }
+      .nav-links.open { display: flex; }
+      .nav-links a, nav.scrolled .nav-links a { color: var(--dark); }
+      .nav-links a:hover { color: var(--orange); }
+      .nav-toggle { display: flex; order: 3; }
+      .lang-switch { margin-left: auto; margin-right: 15px; order: 2; }
+      .nav-logo { order: 1; }
+      section { padding: 60px 20px; }
+      .hero-content { padding: 0 20px; }
+      .hero-title { font-size: 2.8rem; }
+      .hero-sub { font-size: 1.3rem; }
+      .stats-bar { grid-template-columns: 1fr 1fr; }
+      .stat-item { padding: 26px 12px; }
+      .svc-grid { grid-template-columns: 1fr; }
+      .partners-grid { grid-template-columns: 1fr; }
+      .map-pin { left: 10px; right: 10px; bottom: 14px; }
+      .footer-main { padding: 36px 20px 28px; }
+      .footer-bottom { padding: 14px 20px; flex-direction: column; text-align: center; gap: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav id="navbar">
+  <a class="nav-logo" href="#hero">
+    <span class="nav-logo-top" data-en="Law Office" data-bs="Advokatska Kancelarija">Advokatska Kancelarija</span>
+    <span class="nav-logo-bottom">Dalibor Mrša</span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about" data-en="About Us" data-bs="O Nama">O Nama</a></li>
+    <li><a href="#services" data-en="Services" data-bs="Usluge">Usluge</a></li>
+    <li><a href="#partners" data-en="Partners" data-bs="Partneri">Partneri</a></li>
+    <li><a href="#contact" class="nav-cta" data-en="Contact" data-bs="Kontakt">Kontakt</a></li>
+  </ul>
+  <div class="lang-switch">
+    <button class="lang-btn" id="langBtn">EN</button>
+  </div>
+  <button class="nav-toggle" id="navToggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section id="hero">
+  <img class="hero-img"
+    src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1800&q=80&fit=crop"
+    alt="Advokatska kancelarija Banja Luka">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge"><span>Banja Luka · Bosna i Hercegovina</span></div>
+    <h1 class="hero-title">Dalibor<br><em>Mrša</em></h1>
+    <p class="hero-sub" data-en="Attorney & Counselor" data-bs="Advokat & Branilac">Advokat & Branilac</p>
+    <div class="hero-line"></div>
+    <p class="hero-desc" data-en="Professional legal protection for individuals and legal entities before all courts and authorities in Bosnia and Herzegovina. Experience, integrity, and commitment since 2011." data-bs="Stručna pravna zaštita fizičkih i pravnih lica pred svim sudovima i organima vlasti u Bosni i Hercegovini. Iskustvo, integritet i predanost od 2011. godine.">Stručna pravna zaštita fizičkih i pravnih lica pred svim sudovima i organima vlasti u Bosni i Hercegovini. Iskustvo, integritet i predanost od 2011. godine.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-orange" data-en="Contact Us" data-bs="Kontaktirajte Nas">Kontaktirajte Nas</a>
+      <a href="#services" class="btn-ghost" data-en="Our Services" data-bs="Naše Usluge">Naše Usluge</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ STATS ══ -->
+<div class="stats-bar">
+  <div class="stat-item reveal"><div class="stat-num">14+</div><div class="stat-lbl" data-en="Years of experience" data-bs="Godina iskustva">Godina iskustva</div></div>
+  <div class="stat-item reveal" style="transition-delay:.08s"><div class="stat-num">500+</div><div class="stat-lbl" data-en="Represented cases" data-bs="Zastupanih predmeta">Zastupanih predmeta</div></div>
+  <div class="stat-item reveal" style="transition-delay:.16s"><div class="stat-num">3</div><div class="stat-lbl" data-en="International partnerships" data-bs="Međunarodna partnerstva">Međunarodna partnerstva</div></div>
+  <div class="stat-item reveal" style="transition-delay:.24s"><div class="stat-num">BiH</div><div class="stat-lbl" data-en="Jurisdiction" data-bs="Nadležnost">Nadležnost</div></div>
+</div>
+
+<!-- ══ ABOUT ══ -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-img-wrap reveal">
+      <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=700&q=80&fit=crop&crop=top" alt="Dalibor Mrša — Advokat">
+      <div class="about-yr-badge"><span class="about-yr-num">2011</span><span class="about-yr-lbl" data-en="Founded" data-bs="Osnivanje">Osnivanje</span></div>
+    </div>
+    <div class="about-text reveal" style="transition-delay:.12s">
+      <div class="section-tag" data-en="About the Office" data-bs="O Kancelariji">O Kancelariji</div>
+      <h2 class="section-h" data-en="Justice requires<br><em>commitment</em> and knowledge" data-bs="Pravda zahtijeva<br><em>predanost</em> i znanje">Pravda zahtijeva<br><em>predanost</em> i znanje</h2>
+      <p data-en="Law Office Dalibor Mrša was <strong>registered on November 24, 2011</strong> in Banja Luka, at Nikole Pašića 50. Over more than a decade of active work, the office has built a reputation based on expertise, integrity, and successful defense of client interests." data-bs="Advokatska kancelarija Dalibor Mrša <strong>registrovana je 24. novembra 2011. godine</strong> u Banja Luci, u ulici Nikole Pašića 50. U toku više od decenije aktivnog rada, kancelarija je izgradila reputaciju zasnovanu na stručnosti, integritetu i uspješnoj odbrani interesa klijenata.">Advokatska kancelarija Dalibor Mrša <strong>registrovana je 24. novembra 2011. godine</strong> u Banja Luci, u ulici Nikole Pašića 50. U toku više od decenije aktivnog rada, kancelarija je izgradila reputaciju zasnovanu na stručnosti, integritetu i uspješnoj odbrani interesa klijenata.</p>
+      <p data-en="We provide comprehensive legal assistance to <strong>individuals and legal entities</strong> in the fields of criminal, commercial, family, property, and all other branches of law in Bosnia and Herzegovina." data-bs="Pružamo sveobuhvatnu pravnu pomoć <strong>fizičkim i pravnim licima</strong> u oblasti krivičnog, privrednog, porodičnog, imovinskog i svih ostalih grana prava Bosne i Hercegovine.">Pružamo sveobuhvatnu pravnu pomoć <strong>fizičkim i pravnim licima</strong> u oblasti krivičnog, privrednog, porodičnog, imovinskog i svih ostalih grana prava Bosne i Hercegovine.</p>
+      <p data-en="Our philosophy is simple: <strong>client interests always come first.</strong> We approach every case thoroughly, with deep knowledge of the law and extensive court experience." data-bs="Naša filozofija je jednostavna: <strong>interesi klijenta su uvijek na prvom mjestu.</strong> Pristupamo svakom slučaju temeljito, uz duboko poznavanje zakona i bogato sudsko iskustvo.">Naša filozofija je jednostavna: <strong>interesi klijenta su uvijek na prvom mjestu.</strong> Pristupamo svakom slučaju temeljito, uz duboko poznavanje zakona i bogato sudsko iskustvo.</p>
+      <div class="about-sig">Dalibor Mrša</div>
+      <div class="about-sig-title" data-en="Attorney and Founder of the Office" data-bs="Advokat i osnivač kancelarije">Advokat i osnivač kancelarije</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SERVICES ══ -->
+<section id="services">
+  <div class="services-head">
+    <div>
+      <div class="section-tag reveal" data-en="Legal Services" data-bs="Pravne Usluge">Pravne Usluge</div>
+      <h2 class="section-h reveal" data-en="Areas in which<br><em>we represent</em>" data-bs="Oblasti u kojima<br><em>zastupamo</em>">Oblasti u kojima<br><em>zastupamo</em></h2>
+    </div>
+    <p class="services-head-note reveal" data-en="We offer complete legal protection in all areas of law, with special experience in criminal and commercial law." data-bs="Nudimo cjelovitu pravnu zaštitu u svim područjima prava, sa posebnim iskustvom u krivičnom i privrednom pravu.">Nudimo cjelovitu pravnu zaštitu u svim područjima prava, sa posebnim iskustvom u krivičnom i privrednom pravu.</p>
+  </div>
+  <div class="svc-grid">
+    <div class="svc-card reveal"><div class="svc-n">01</div><div class="svc-name" data-en="Criminal Law" data-bs="Krivično Pravo">Krivično Pravo</div><div class="svc-desc" data-en="Defense and representation in criminal proceedings at all levels, from investigation to final judgment." data-bs="Odbrana i zastupanje u krivičnim postupcima pred svim instancama, od istrage do pravosnažne presude.">Odbrana i zastupanje u krivičnim postupcima pred svim instancama, od istrage do pravosnažne presude.</div></div>
+    <div class="svc-card reveal" style="transition-delay:.07s"><div class="svc-n">02</div><div class="svc-name" data-en="Commercial Law" data-bs="Privredno Pravo">Privredno Pravo</div><div class="svc-desc" data-en="Representation of business entities, contractual disputes, formation of companies, and bankruptcy proceedings." data-bs="Zastupanje privrednih subjekata, ugovorni sporovi, osnivanje privrednih društava i stečajni postupci.">Zastupanje privrednih subjekata, ugovorni sporovi, osnivanje privrednih društava i stečajni postupci.</div></div>
+    <div class="svc-card reveal" style="transition-delay:.14s"><div class="svc-n">03</div><div class="svc-name" data-en="Family Law" data-bs="Porodično Pravo">Porodično Pravo</div><div class="svc-desc" data-en="Divorce, division of property, child custody, alimony, and protection of family rights." data-bs="Razvod braka, podjela imovine, starateljstvo nad djecom, alimentacija i zaštita porodičnih prava.">Razvod braka, podjela imovine, starateljstvo nad djecom, alimentacija i zaštita porodičnih prava.</div></div>
+    <div class="svc-card reveal" style="transition-delay:.07s"><div class="svc-n">04</div><div class="svc-name" data-en="Property Law" data-bs="Imovinsko Pravo">Imovinsko Pravo</div><div class="svc-desc" data-en="Ownership disputes, real estate transactions, legalization of buildings, and inheritance law." data-bs="Vlasnički sporovi, promet nekretnina, legalizacija objekata i nasljedno pravo.">Vlasnički sporovi, promet nekretnina, legalizacija objekata i nasljedno pravo.</div></div>
+    <div class="svc-card reveal" style="transition-delay:.14s"><div class="svc-n">05</div><div class="svc-name" data-en="Labor Law" data-bs="Radno Pravo">Radno Pravo</div><div class="svc-desc" data-en="Protection of workers' rights, employment contracts, representation in labor disputes, and disciplinary proceedings." data-bs="Zaštita prava radnika, ugovori o radu, zastupanje u radnim sporovima i disciplinski postupci.">Zaštita prava radnika, ugovori o radu, zastupanje u radnim sporovima i disciplinski postupci.</div></div>
+    <div class="svc-card reveal" style="transition-delay:.21s"><div class="svc-n">06</div><div class="svc-name" data-en="Administrative Law" data-bs="Upravno Pravo">Upravno Pravo</div><div class="svc-desc" data-en="Representation in administrative proceedings and disputes before state authorities and institutions." data-bs="Zastupanje u upravnim postupcima i sporovima pred državnim organima i institucijama.">Zastupanje u upravnim postupcima i sporovima pred državnim organima i institucijama.</div></div>
+  </div>
+</section>
+
+<!-- ══ PARTNERS ══ -->
+<section id="partners">
+  <div class="partners-head">
+    <div class="section-tag reveal" data-en="Partnerships" data-bs="Partnerstva">Partnerstva</div>
+    <h2 class="section-h reveal" data-en="International<br><em>Collaboration</em>" data-bs="Međunarodna<br><em>Saradnja</em>">Međunarodna<br><em>Saradnja</em></h2>
+  </div>
+  <div class="partners-grid">
+    <!-- Partner 1 -->
+    <div class="vcard reveal">
+      <div class="vcard-stripe"></div>
+      <div class="vcard-top">
+        <div class="vcard-logo">SCHNEIDER &amp; SCHNEIDER</div>
+        <div class="vcard-tagline" data-en="Attorneys at Law" data-bs="Advokatska Kancelarija">Advokatska Kancelarija</div>
+      </div>
+      <div class="vcard-photo-wrap">
+        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80&fit=crop" class="vcard-photo-rect" alt="Vienna Office">
+      </div>
+      <div class="vcard-body">
+        <div class="vcard-person-info">
+          <div class="vcard-name">Dr. Hans Schneider</div>
+          <div class="vcard-title" data-en="Partner — Vienna, Austria" data-bs="Partner — Beč, Austrija">Partner — Beč, Austrija</div>
+        </div>
+        <div class="vcard-row">
+          <div class="vcard-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="vcard-info">Stephansplatz 4, 1010 Wien</div>
+        </div>
+        <div class="vcard-row">
+          <div class="vcard-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div class="vcard-info">+43 1 533 44 55</div>
+        </div>
+        <div class="vcard-accent"></div>
+      </div>
+    </div>
+
+    <!-- Partner 2 -->
+    <div class="vcard reveal" style="transition-delay:.1s">
+      <div class="vcard-stripe"></div>
+      <div class="vcard-top">
+        <div class="vcard-logo">ROSSI &amp; ASSOCIATI</div>
+        <div class="vcard-tagline" data-en="Legal & Consulting" data-bs="Pravno Savjetovanje">Pravno Savjetovanje</div>
+      </div>
+      <div class="vcard-photo-wrap">
+        <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&q=80&fit=crop" class="vcard-photo-rect" alt="Milan Office">
+      </div>
+      <div class="vcard-body">
+        <div class="vcard-person-info">
+          <div class="vcard-name">Avv. Marco Rossi</div>
+          <div class="vcard-title" data-en="Partner — Milan, Italy" data-bs="Partner — Milano, Italija">Partner — Milano, Italija</div>
+        </div>
+        <div class="vcard-row">
+          <div class="vcard-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="vcard-info">Via Montenapoleone 8, 20121 Milano</div>
+        </div>
+        <div class="vcard-row">
+          <div class="vcard-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div class="vcard-info">+39 02 7600 1122</div>
+        </div>
+        <div class="vcard-accent"></div>
+      </div>
+    </div>
+
+    <!-- Partner 3 -->
+    <div class="vcard reveal" style="transition-delay:.2s">
+      <div class="vcard-stripe"></div>
+      <div class="vcard-top">
+        <div class="vcard-logo">ADRIATIC LEGAL</div>
+        <div class="vcard-tagline" data-en="Regional Network" data-bs="Regionalna Mreža">Regionalna Mreža</div>
+      </div>
+      <div class="vcard-photo-wrap">
+        <img src="https://images.unsplash.com/photo-1517502884422-41eaead166d4?w=600&q=80&fit=crop" class="vcard-photo-rect" alt="Belgrade Office">
+      </div>
+      <div class="vcard-body">
+        <div class="vcard-person-info">
+          <div class="vcard-name">Adv. Milica Perić</div>
+          <div class="vcard-title" data-en="Partner — Belgrade, Serbia" data-bs="Partner — Beograd, Srbija">Partner — Beograd, Srbija</div>
+        </div>
+        <div class="vcard-row">
+          <div class="vcard-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="vcard-info">Knez Mihailova 30, 11000 Beograd</div>
+        </div>
+        <div class="vcard-row">
+          <div class="vcard-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div class="vcard-info">+381 11 322 4455</div>
+        </div>
+        <div class="vcard-accent"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CONTACT ══ -->
+<section id="contact">
+  <div class="section-tag reveal" data-en="Contact Information" data-bs="Kontakt Informacije">Kontakt Informacije</div>
+  <h2 class="section-h reveal" data-en="How to <em>reach</em> us" data-bs="Kako nas <em>pronaći</em>">Kako nas <em>pronaći</em></h2>
+  
+  <div class="contact-layout reveal">
+    <div class="contact-block">
+      <div class="contact-block-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      </div>
+      <div class="contact-block-lbl" data-en="Address" data-bs="Adresa">Adresa</div>
+      <div class="contact-block-val">Nikole Pašića 50<br>78000 Banja Luka, BiH</div>
+    </div>
+    <div class="contact-block">
+      <div class="contact-block-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </div>
+      <div class="contact-block-lbl" data-en="Phone" data-bs="Telefon">Telefon</div>
+      <div class="contact-block-val"><a href="tel:051921358">051 / 921-358</a></div>
+    </div>
+    <div class="contact-block">
+      <div class="contact-block-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </div>
+      <div class="contact-block-lbl" data-en="Email" data-bs="E-mail">E-mail</div>
+      <div class="contact-block-val"><a href="/cdn-cgi/l/email-protection#3e5a5f52575c514c10534c4d5f7e59535f5752105d5153"><span class="__cf_email__" data-cfemail="7317121f1a111c015d1e01001233141e121a1f5d101c1e">[email&#160;protected]</span></a></div>
+    </div>
+  </div>
+
+  <div class="hours-grid reveal">
+    <div class="hours-title" data-en="Working Hours" data-bs="Radno Vrijeme">Radno Vrijeme</div>
+    <div class="hours-row"><span data-en="Monday — Friday" data-bs="Ponedjeljak — Petak">Ponedjeljak — Petak</span><span>08:00 – 16:00</span></div>
+    <div class="hours-row"><span data-en="Saturday" data-bs="Subota">Subota</span><span data-en="By appointment" data-bs="Po dogovoru">Po dogovoru</span></div>
+    <div class="hours-row"><span data-en="Sunday" data-bs="Nedjelja">Nedjelja</span><span data-en="Closed" data-bs="Zatvoreno">Zatvoreno</span></div>
+  </div>
+</section>
+
+<!-- ══ MAP ══ -->
+<div class="map-wrap">
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2830.144747656242!2d17.19248467664848!3d44.77785597107153!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475e030f06677777%3A0x7777777777777777!2sNikole%20Pa%C5%A1i%C4%87a%2050%2C%20Banja%20Luka%2078000!5e0!3m2!1sbs!2sba!4v1700000000000!5m2!1sbs!2sba" allowfullscreen="" loading="lazy"></iframe>
+  <div class="map-pin">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+    <div>
+      <div class="map-pin-name" data-en="Law Office Dalibor Mrša" data-bs="Advokatska kancelarija Dalibor Mrša">Advokatska kancelarija Dalibor Mrša</div>
+      <div class="map-pin-addr">Nikole Pašića 50, 78000 Banja Luka</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-main">
+    <div>
+      <div class="f-brand-logo" data-en="Law Office<br><span>Dalibor Mrša</span>" data-bs="Advokatska Kancelarija<br><span>Dalibor Mrša</span>">Advokatska Kancelarija<br><span>Dalibor Mrša</span></div>
+      <p class="f-tagline" data-en="Expert legal protection of your interests before all courts and authorities in Bosnia and Herzegovina since 2011." data-bs="Stručna pravna zaštita Vaših interesa pred svim sudovima i organima vlasti u Bosni i Hercegovini od 2011. godine.">Stručna pravna zaštita Vaših interesa pred svim sudovima i organima vlasti u Bosni i Hercegovini od 2011. godine.</p>
+    </div>
+    <div class="f-col">
+      <div class="f-col-title" data-en="Services" data-bs="Usluge">Usluge</div>
+      <ul>
+        <li data-en="Criminal Law" data-bs="Krivično Pravo">Krivično Pravo</li>
+        <li data-en="Commercial Law" data-bs="Privredno Pravo">Privredno Pravo</li>
+        <li data-en="Family Law" data-bs="Porodično Pravo">Porodično Pravo</li>
+        <li data-en="Property Law" data-bs="Imovinsko Pravo">Imovinsko Pravo</li>
+        <li data-en="Labor Law" data-bs="Radno Pravo">Radno Pravo</li>
+        <li data-en="Administrative Law" data-bs="Upravno Pravo">Upravno Pravo</li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <div class="f-col-title" data-en="Contact" data-bs="Kontakt">Kontakt</div>
+      <ul>
+        <li>Nikole Pašića 50</li>
+        <li>78000 Banja Luka, BiH</li>
+        <li><a href="tel:051921358">051 / 921-358</a></li>
+        <li><a href="/cdn-cgi/l/email-protection#b0d4d1dcd9d2dfc29eddc2c3d1f0d7ddd1d9dc9ed3dfdd"><span class="__cf_email__" data-cfemail="ee8a8f82878c819cc0839c9d8fae89838f8782c08d8183">[email&#160;protected]</span></a></li>
+        <li style="margin-top:10px">
+          <a href="https://www.facebook.com/advokatmrsa/about?locale=hr_HR" target="_blank" rel="noopener" data-en="Facebook page" data-bs="Facebook stranica">
+            Facebook stranica
+          </a>
+        </li>
+        <li><a href="http://www.advokatmrsa.com" target="_blank" rel="noopener">advokatmrsa.com</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="f-copy" data-en="© 2025 Law Office Dalibor Mrša · All rights reserved" data-bs="© 2025 Advokatska kancelarija Dalibor Mrša · Sva prava zadržana">© 2025 Advokatska kancelarija Dalibor Mrša · Sva prava zadržana</div>
+    <div class="f-napa">
+      Powered by&nbsp;
+      <a href="https://www.instagram.com/napa_development" target="_blank" rel="noopener">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none">
+          <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.8" fill="none"/>
+          <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.8" fill="none"/>
+          <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+        </svg>
+        napa_development
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ── NAVBAR ──
+  const nav = document.getElementById('navbar');
+  const links = document.getElementById('navLinks');
+
+  function updateDropdownTop() {
+    if (window.innerWidth <= 720) {
+      links.style.top = nav.offsetHeight + 'px';
+    } else {
+      links.style.top = '';
+    }
+  }
+
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 50);
+    updateDropdownTop();
+  }, { passive: true });
+
+  window.addEventListener('resize', updateDropdownTop, { passive: true });
+  updateDropdownTop();
+
+  const toggle = document.getElementById('navToggle');
+  toggle.addEventListener('click', () => { updateDropdownTop(); links.classList.toggle('open'); });
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+
+  // ── REVEAL ANIMATIONS ──
+  // Make all reveals visible immediately if already in viewport on load
+  function revealInViewport() {
+    document.querySelectorAll('.reveal:not(.visible)').forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        el.classList.add('visible');
+      }
+    });
+  }
+
+  try {
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.05 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  } catch(e) {
+    // Fallback: just make everything visible
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+  }
+
+  // Run on load and scroll to catch any missed elements
+  window.addEventListener('load', revealInViewport);
+  window.addEventListener('scroll', revealInViewport, { passive: true });
+  revealInViewport();
+
+  // ── LANGUAGE SWITCH LOGIC ──
+  const langBtn = document.getElementById('langBtn');
+  let currentLang = 'bs';
+
+  function applyLanguage(lang) {
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-en][data-bs]').forEach(el => {
+      const text = el.getAttribute('data-' + lang);
+      if (text) el.innerHTML = text;
+    });
+    langBtn.textContent = lang === 'bs' ? 'EN' : 'BS';
+  }
+
+  langBtn.addEventListener('click', () => {
+    currentLang = currentLang === 'bs' ? 'en' : 'bs';
+    applyLanguage(currentLang);
+  });
+</script>
